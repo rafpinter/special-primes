@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Q2_Nombres_Premiers_En_Sequence",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Q2_Nombres_Premiers_En_Sequence::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Q2_Nombres_Premiers_En_Sequence-Debug-8a93c104dc73a8cba926.json",
+					"name" : "Q2_Nombres_Premiers_En_Sequence",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/rafaelapinter/Library/Mobile Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hws/hw2/Code/Q2 Nombres Premiers En Sequence/cmake-build-debug",
+		"source" : "/Users/rafaelapinter/Library/Mobile Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hws/hw2/Code/Q2 Nombres Premiers En Sequence"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

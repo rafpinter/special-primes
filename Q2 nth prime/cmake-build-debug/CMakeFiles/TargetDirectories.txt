@@ -1,0 +1,3 @@
+/Users/rafaelapinter/Library/Mobile Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hw1/Q2 nth prime/cmake-build-debug/CMakeFiles/Q2_nth_prime.dir
+/Users/rafaelapinter/Library/Mobile Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hw1/Q2 nth prime/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/rafaelapinter/Library/Mobile Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hw1/Q2 nth prime/cmake-build-debug/CMakeFiles/rebuild_cache.dir

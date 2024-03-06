@@ -1,0 +1,4 @@
+# ninja log v5
+1	700	1709257426216885338	CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/PrimeSequenceCalculator.cpp.o	fc04a4211127b108
+809	977	1709257426493257144	Q2_Nombres_Premiers_En_Sequence	2e3f91951209cb78
+0	809	1709257426329115401	CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/prime_numbers_sequences.cpp.o	1945086b05005861
