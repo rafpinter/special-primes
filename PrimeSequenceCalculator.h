@@ -12,11 +12,9 @@ class PrimeSequenceCalculator{
     public :
         PrimeSequenceCalculator();
         bool IsPrime(int N);
-        std::vector<int> CalculateNthPrime(int N);
-        std::vector<int> FindNumbersWithSameDigits(int N, std::vector<int> prime_numbers);
-        bool CheckIfNumberInList(int N, std::unordered_set<int> list);
+        std::vector<int> GeneratePrimesUpToN(int N);
+        static std::vector<int> FindNumbersWithSameDigits(int N, std::vector<int> prime_numbers);
+        static bool CheckIfNumberInList(int N, std::vector<int> list);
         std::vector<std::vector<int>> CalculatePrimeSequences(const int N);
-
-    std::vector<std::vector<int>>
-    AddTmpSequenceToFinalSolution(std::vector<int> tmp_solution, std::vector<std::vector<int>> final_solution);
+        std::vector<std::vector<int>> AddTmpSolutionToFinalSolution(std::vector<int> tmp_solution, std::vector<std::vector<int>> final_solution);
 };

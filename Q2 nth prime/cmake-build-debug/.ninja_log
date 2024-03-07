@@ -1,5 +1,0 @@
-# ninja log v5
-724	896	1707697967066036985	Q2_nth_prime	da7a52a368f3c62c
-10	724	1707697966894724466	CMakeFiles/Q2_nth_prime.dir/nth_prime.cpp.o	4e5cd096ee20df5c
-10	262	1707697966434314099	CMakeFiles/Q2_nth_prime.dir/PrimeCalculator.cpp.o	e5c2106f71c70876
-8	89	1707701022147916584	build.ninja	3f608a4b7ed8f607
