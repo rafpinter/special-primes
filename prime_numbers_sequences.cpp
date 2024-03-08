@@ -31,6 +31,20 @@
 
 bool TestPrimeCalculator();
 
+void printVectorOfVectors(const std::vector<std::vector<int>>& vec) {
+    for (const auto& innerVec : vec) { // Loop over each inner vector
+        std::cout << "[";
+        for (size_t i = 0; i < innerVec.size(); ++i) { // Loop over each element of the inner vector
+            std::cout << innerVec[i];
+            if (i < innerVec.size() - 1) { // Check if it's not the last element to avoid trailing comma
+                std::cout << ", ";
+            }
+        }
+        std::cout << "]" << std::endl;
+    }
+}
+
+
 int main(int argc, char *argv[])
 {
     std::cout << "Calculateur de sequences de nombres premiers / Prime Numbers Sequence Calculator" << std::endl;
@@ -47,22 +61,26 @@ int main(int argc, char *argv[])
 
     PrimeSequenceCalculator Calculator = PrimeSequenceCalculator();
     std::vector<std::vector<int>> PrimeSequences = Calculator.CalculatePrimeSequences(N);
+    printVectorOfVectors(PrimeSequences);
 
-    for (const auto sequence : PrimeSequences){
-        for (const auto number : sequence){
-            std::cout << number << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    // tests
-    if (TestPrimeCalculator()){
-        std::cout << "Tests reussis / Tests passed !" << std::endl;
-    } else {
-        std::cout << "Tests echoues / Failed tests :(" << std::endl;
-    }
+//    for (const auto sequence : PrimeSequences){
+//        for (const auto number : sequence){
+//            std::cout << number << " ";
+//        }
+//        std::cout << std::endl;
+//    }
+//
+//    // tests
+//    if (TestPrimeCalculator()){
+//        std::cout << "Tests reussis / Tests passed !" << std::endl;
+//    } else {
+//        std::cout << "Tests echoues / Failed tests :(" << std::endl;
+//    }
 
 }
+
+
+
 
 bool TestPrimeCalculator(){
     std::vector<std::vector<int>> ExpectedReturns;
@@ -73,6 +91,7 @@ bool TestPrimeCalculator(){
     ExpectedReturns.push_back({12713,13217,13721});
 
     std::vector<std::vector<int>> ReceivedReturns = Calculator.CalculatePrimeSequences(20000);
+//    printVectorOfVectors(ReceivedReturns);
 
     if (ReceivedReturns.size() != ExpectedReturns.size())
         return false;
