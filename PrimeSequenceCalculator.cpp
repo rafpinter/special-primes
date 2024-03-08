@@ -17,6 +17,7 @@ PrimeSequenceCalculator::PrimeSequenceCalculator()
 }
 
 void printVector(const std::vector<int>& vec) {
+    // debugging
     std::cout << "[";
     for (size_t i = 0; i < vec.size(); ++i) {
         std::cout << vec[i];
@@ -43,77 +44,43 @@ bool PrimeSequenceCalculator::IsPrime(int number) {
 }
 
 std::vector<int> PrimeSequenceCalculator::FindPrimesBetween(int min, int max){
-    // a completer
-    // TODO
-//    std::cout << "Achando primos..." << std::endl;
+    // Find all prime number between min and max
     std::vector<int> prime_numbers;
-
-    // Loop to find the next prime.
-    // Counts the number of primes already found.
     for (int ref_number = min; ref_number < max; ref_number++) {
         if (IsPrime(ref_number)) {
             prime_numbers.push_back(ref_number);
         }
     }
-    // Found prime
-//    printVector(prime_numbers);
     return prime_numbers;
 }
 
 
 std::vector<int> PrimeSequenceCalculator::FindSublistOfPrimes(std::vector<int> & prime_numbers){
-    // TODO
-    // preciso pegar o primeiro número da primes_numbers (removendo-o da lista) e
-    // achar todas as permutações que são primos também nessa lista.
-    // toda vez que acessar um número da lista, remover inplace da prime_numbers
-    // Exemplo: prime_numbers: [113, 131, 311, 997]
-    // Retorna: [113, 131, 311]
-    // prime_numbers: [997]
-    // Step 1: Extract the first prime number.
-//    std::cout << "Achando subset de primos..." << std::endl;
+    // Finds a sublist of primes with the same digits
+
     int first_prime = prime_numbers[0];
     std::string string_first_prime = std::to_string(first_prime);
-
-    // Remove the first prime number from the original list.
     prime_numbers.erase(prime_numbers.begin());
+    std::vector<int> matched_primes;
 
-    // Step 2: Generate all unique permutations of the first prime number.
-    std::sort(string_first_prime.begin(), string_first_prime.end());
-    std::unordered_set<int> prime_permutations;
-
-    do {
-        int perm = std::stoi(string_first_prime);
-        prime_permutations.insert(perm);
-    } while (std::next_permutation(string_first_prime.begin(), string_first_prime.end()));
-
-    std::vector<int> matching_primes;
-    auto it = prime_numbers.begin();
-
-    while (it != prime_numbers.end()) {
-        if (prime_permutations.find(*it) != prime_permutations.end()) {
-            matching_primes.push_back(*it);
-            it = prime_numbers.erase(it); // This also advances the iterator.
-        } else {
-            ++it;
+    matched_primes.push_back(first_prime);
+    // ref https://stackoverflow.com/questions/17006808/find-all-permutations-of-a-string-in-c
+    do
+    {
+        int num = std::stoi(string_first_prime);
+        if (CheckIfNumberInList(num, prime_numbers)) {
+            matched_primes.push_back(num);
+            prime_numbers.erase(std::remove(prime_numbers.begin(), prime_numbers.end(), num),
+                                prime_numbers.end());
         }
-    }
+    } while ( std::next_permutation(string_first_prime.begin(), string_first_prime.end()) );
 
-    // Including the first prime number in the result if it's a permutation of itself.
-    if (prime_permutations.find(first_prime) != prime_permutations.end()) {
-        matching_primes.insert(matching_primes.begin(), first_prime);
-    }
-//    printVector(matching_primes);
-    return matching_primes;
-//    printVector(matching_primes);
+    return matched_primes;
 }
 
-std::vector<std::vector<int>> PrimeSequenceCalculator::FindValidSequences(
-        std::vector<int> & primes_same_digits) {
-    //
-//    std::cout << "Achando sequencia válida de primos..." << std::endl;
-    std::vector<std::vector<int>> sol;
+std::vector<std::vector<int>> PrimeSequenceCalculator::FindValidSequences(std::vector<int> & primes_same_digits) {
 
-//    printVector(primes_same_digits);
+    std::vector<std::vector<int>> sol;
 
     while (primes_same_digits.size() > 2) {
         int ref_min = primes_same_digits[0];
@@ -146,17 +113,14 @@ std::vector<std::vector<int>> PrimeSequenceCalculator::FindValidSequences(
 
 
 bool PrimeSequenceCalculator::CheckIfNumberInList(int N, std::vector<int> list) {
+    // Binary search for finding number in a sorted vector
     return std::binary_search(list.begin(), list.end(), N);
 }
 
 void PrimeSequenceCalculator::AddValidSeqsToFinalSolution(
         std::vector<std::vector<int>> tmp_solution,
         std::vector<std::vector<int>> & final_solution) {
-    // tmp_solution = [[e, f, g], [f, g, h]]
-    // solution = [[a, b, c], [b, c, d]]
-    // modifies solution (inplace) to:
-    //      [[a, b, c], [b, c, d], [e, f, g], [f, g, h]]
-//    std::cout << "Adicionando valid seqs na solução..." << std::endl;
+    // Adds triplets to final solution
     final_solution.insert(final_solution.end(), tmp_solution.begin(), tmp_solution.end());
 }
 
@@ -164,21 +128,13 @@ std::vector<std::vector<int>> PrimeSequenceCalculator::ProcessAndAddToSolution(
         std::vector<int> tmp_solution,
         std::vector<std::vector<int>> & solution
         ){
-    // tmp_solution = [a, b, c, d]
-    // solution = [[]] or [[...]]
-    // returns
-    //      solution = [[a, b, c], [b, c, d]]
-    // Check if tmp_solution has at least 3 elements to form a triplet
-//    std::cout << "Processando e adicionando na solução..." << std::endl;
+    // Process list of vector in triplets
     if (tmp_solution.size() >= 3) {
         for (size_t i = 0; i <= tmp_solution.size() - 3; ++i) {
-            // Extract the triplet [i, i+1, i+2]
             std::vector<int> triplet = {tmp_solution[i], tmp_solution[i + 1], tmp_solution[i + 2]};
-            // Add the triplet to the solution vector
             solution.push_back(triplet);
         }
     }
-    // Return the updated solution for consistency, even though it's modified in place
     return solution;
 }
 
@@ -192,7 +148,6 @@ std::vector<std::vector<int>> PrimeSequenceCalculator::CalculatePrimeSequences(c
     int end;
 
     int k = 100;
-    std::cout << "Iniciando..." << std::endl;
     while (k < N) {
         if (10 * k > N) {
             end = N;

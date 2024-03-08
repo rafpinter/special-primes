@@ -8,6 +8,8 @@
 // NEW CUSTOM TESTS IF YOU WISH TO DO SO.
 // DO NOT SUBMIT ON STUDIUM. ONLY SUBMIT PrimeSequenceCalculator.cpp/.h
 
+// g++ -std=c++11 -o prime_numbers_sequences.exe ./prime_numbers_sequences.cpp ./PrimeSequenceCalculator.cpp
+// ./prime_numbers_sequences.exe 20000
 
 #include <iostream> // pour l'affichage dans la console // for display in console
 #include "PrimeSequenceCalculator.h" // pour la classe principale de l'exercice // for the main class of the exercise
@@ -61,7 +63,7 @@ int main(int argc, char *argv[])
 
     PrimeSequenceCalculator Calculator = PrimeSequenceCalculator();
     std::vector<std::vector<int>> PrimeSequences = Calculator.CalculatePrimeSequences(N);
-    printVectorOfVectors(PrimeSequences);
+//    printVectorOfVectors(PrimeSequences);
 
     for (const auto sequence : PrimeSequences){
         for (const auto number : sequence){

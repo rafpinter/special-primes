@@ -9,5 +9,7 @@ add_executable(Q2_Nombres_Premiers_En_Sequence
         prime_numbers_sequences.cpp
         PrimeSequenceCalculator.cpp
         PrimeSequenceCalculator.h
-        "Q2 nth prime/nth_prime_origina.cpp"
-        "Q2 nth prime/PrimeCalculator.cpp")
+        test/test.h
+        test/test.h
+        test/test.h
+        test/test.cpp)

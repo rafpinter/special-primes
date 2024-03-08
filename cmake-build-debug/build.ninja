@@ -63,19 +63,12 @@ build CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/PrimeSequenceCalculator.cpp
   OBJECT_DIR = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir
   OBJECT_FILE_DIR = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir
 
-build CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/Q2_nth_prime/nth_prime_origina.cpp.o: CXX_COMPILER__Q2_Nombres_Premiers_En_Sequence_unscanned_Debug /Users/rafaelapinter/Library/Mobile$ Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hws/hw2/Code/Q2$ Nombres$ Premiers$ En$ Sequence/Q2$ nth$ prime/nth_prime_origina.cpp || cmake_object_order_depends_target_Q2_Nombres_Premiers_En_Sequence
-  DEP_FILE = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/Q2_nth_prime/nth_prime_origina.cpp.o.d
+build CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/test/test.cpp.o: CXX_COMPILER__Q2_Nombres_Premiers_En_Sequence_unscanned_Debug /Users/rafaelapinter/Library/Mobile$ Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hws/hw2/Code/Q2$ Nombres$ Premiers$ En$ Sequence/test/test.cpp || cmake_object_order_depends_target_Q2_Nombres_Premiers_En_Sequence
+  DEP_FILE = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/test/test.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
   INCLUDES = -I"/Users/rafaelapinter/Library/Mobile Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hws/hw2/Code/Q2 Nombres Premiers En Sequence/."
   OBJECT_DIR = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir
-  OBJECT_FILE_DIR = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/Q2_nth_prime
-
-build CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/Q2_nth_prime/PrimeCalculator.cpp.o: CXX_COMPILER__Q2_Nombres_Premiers_En_Sequence_unscanned_Debug /Users/rafaelapinter/Library/Mobile$ Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hws/hw2/Code/Q2$ Nombres$ Premiers$ En$ Sequence/Q2$ nth$ prime/PrimeCalculator.cpp || cmake_object_order_depends_target_Q2_Nombres_Premiers_En_Sequence
-  DEP_FILE = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/Q2_nth_prime/PrimeCalculator.cpp.o.d
-  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
-  INCLUDES = -I"/Users/rafaelapinter/Library/Mobile Documents/com~apple~CloudDocs/1.UdeM/IFT2125/hws/hw2/Code/Q2 Nombres Premiers En Sequence/."
-  OBJECT_DIR = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir
-  OBJECT_FILE_DIR = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/Q2_nth_prime
+  OBJECT_FILE_DIR = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/test
 
 
 # =============================================================================
@@ -85,7 +78,7 @@ build CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/Q2_nth_prime/PrimeCalculato
 #############################################
 # Link the executable Q2_Nombres_Premiers_En_Sequence
 
-build Q2_Nombres_Premiers_En_Sequence: CXX_EXECUTABLE_LINKER__Q2_Nombres_Premiers_En_Sequence_Debug CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/prime_numbers_sequences.cpp.o CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/PrimeSequenceCalculator.cpp.o CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/Q2_nth_prime/nth_prime_origina.cpp.o CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/Q2_nth_prime/PrimeCalculator.cpp.o
+build Q2_Nombres_Premiers_En_Sequence: CXX_EXECUTABLE_LINKER__Q2_Nombres_Premiers_En_Sequence_Debug CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/prime_numbers_sequences.cpp.o CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/PrimeSequenceCalculator.cpp.o CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir/test/test.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk
   OBJECT_DIR = CMakeFiles/Q2_Nombres_Premiers_En_Sequence.dir
   POST_BUILD = :
