@@ -15,7 +15,7 @@ class PrimeSequenceCalculator{
     bool IsPrime(int number);
     std::vector<int> FindPrimesBetween(int min, int max);
     std::vector<int> FindSublistOfPrimes(std::vector<int> & prime_numbers);
-    std::vector<std::vector<int>> FindValidSequences(std::vector<int> & primes_same_digits, std::vector<int> & primes_list);
+    std::vector<std::vector<int>> FindValidSequences(std::vector<int> & primes_same_digits);
     bool CheckIfNumberInList(int N, std::vector<int> list);
     void AddValidSeqsToFinalSolution(std::vector<std::vector<int>> tmp_solution, std::vector<std::vector<int>> & final_solution);
     std::vector<std::vector<int>> ProcessAndAddToSolution(std::vector<int> tmp_solution, std::vector<std::vector<int>> & solution);

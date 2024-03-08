@@ -5,7 +5,7 @@
 #include <vector>
 #include <unordered_set>
 // #include <math.h>
-#include <algorithm>
+//#include <algorithm>
 #include <iostream>
 #include <string>
 
@@ -71,29 +71,27 @@ std::vector<int> PrimeSequenceCalculator::FindSublistOfPrimes(std::vector<int> &
     // prime_numbers: [997]
     // Step 1: Extract the first prime number.
 //    std::cout << "Achando subset de primos..." << std::endl;
-    int firstPrime = prime_numbers[0];
-    std::string firstPrimeStr = std::to_string(firstPrime);
+    int first_prime = prime_numbers[0];
+    std::string string_first_prime = std::to_string(first_prime);
 
     // Remove the first prime number from the original list.
     prime_numbers.erase(prime_numbers.begin());
 
     // Step 2: Generate all unique permutations of the first prime number.
-    std::sort(firstPrimeStr.begin(), firstPrimeStr.end());
-    std::unordered_set<int> primePermutations;
+    std::sort(string_first_prime.begin(), string_first_prime.end());
+    std::unordered_set<int> prime_permutations;
 
     do {
-        int perm = std::stoi(firstPrimeStr);
-        // Add only unique permutations.
-        primePermutations.insert(perm);
-    } while (std::next_permutation(firstPrimeStr.begin(), firstPrimeStr.end()));
+        int perm = std::stoi(string_first_prime);
+        prime_permutations.insert(perm);
+    } while (std::next_permutation(string_first_prime.begin(), string_first_prime.end()));
 
-    // Step 3: Identify and collect matching prime permutations from the list.
-    std::vector<int> matchingPrimes;
+    std::vector<int> matching_primes;
     auto it = prime_numbers.begin();
 
     while (it != prime_numbers.end()) {
-        if (primePermutations.find(*it) != primePermutations.end()) {
-            matchingPrimes.push_back(*it);
+        if (prime_permutations.find(*it) != prime_permutations.end()) {
+            matching_primes.push_back(*it);
             it = prime_numbers.erase(it); // This also advances the iterator.
         } else {
             ++it;
@@ -101,15 +99,16 @@ std::vector<int> PrimeSequenceCalculator::FindSublistOfPrimes(std::vector<int> &
     }
 
     // Including the first prime number in the result if it's a permutation of itself.
-    if (primePermutations.find(firstPrime) != primePermutations.end()) {
-        matchingPrimes.insert(matchingPrimes.begin(), firstPrime);
+    if (prime_permutations.find(first_prime) != prime_permutations.end()) {
+        matching_primes.insert(matching_primes.begin(), first_prime);
     }
-    return matchingPrimes;
+//    printVector(matching_primes);
+    return matching_primes;
+//    printVector(matching_primes);
 }
 
 std::vector<std::vector<int>> PrimeSequenceCalculator::FindValidSequences(
-        std::vector<int> & primes_same_digits,
-        std::vector<int> & primes_list) {
+        std::vector<int> & primes_same_digits) {
     //
 //    std::cout << "Achando sequencia válida de primos..." << std::endl;
     std::vector<std::vector<int>> sol;
@@ -120,22 +119,24 @@ std::vector<std::vector<int>> PrimeSequenceCalculator::FindValidSequences(
         int ref_min = primes_same_digits[0];
 
         primes_same_digits.erase(primes_same_digits.begin());
-        int k = primes_same_digits[0] - ref_min;
+        for (int j = 0; j < primes_same_digits.size(); j++){
+            int k = primes_same_digits[j] - ref_min;
 
-        std::vector<int> tmp_sol;
-        tmp_sol.push_back(ref_min);
-        tmp_sol.push_back(primes_same_digits[0]);
+            std::vector<int> tmp_sol;
+            tmp_sol.push_back(ref_min);
+            tmp_sol.push_back(primes_same_digits[j]);
 
-        int i = 2;
-        int next = ref_min + i * k;
-        while (CheckIfNumberInList(next, primes_same_digits)) {
-            tmp_sol.push_back(next);
-            i++;
-            next = ref_min + i * k;
-        }
+            int i = 2;
+            int next = ref_min + i * k;
+            while (CheckIfNumberInList(next, primes_same_digits)) {
+                tmp_sol.push_back(next);
+                i++;
+                next = ref_min + i * k;
+            }
 
-        if (tmp_sol.size() > 2) {
-            ProcessAndAddToSolution(tmp_sol, sol);
+            if (tmp_sol.size() > 2) {
+                ProcessAndAddToSolution(tmp_sol, sol);
+            }
         }
     }
 
@@ -202,13 +203,15 @@ std::vector<std::vector<int>> PrimeSequenceCalculator::CalculatePrimeSequences(c
         primes_list = FindPrimesBetween(k, end);
         while (primes_list.size() > 2) {
             primes_same_digits = FindSublistOfPrimes(primes_list);
-            valid_sequences = FindValidSequences(primes_same_digits, primes_list);
+            valid_sequences = FindValidSequences(primes_same_digits);
             if (!valid_sequences.empty()) {
                 AddValidSeqsToFinalSolution(valid_sequences, solution);
             }
         }
         k = 10 * k;
-        std::cout << "Incrementando k..." << std::endl;
     }
+    std::sort(solution.begin(), solution.end(), [](const std::vector<int>& a, const std::vector<int>& b) {
+        return a.front() < b.front();
+    });
     return solution;
 }

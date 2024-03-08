@@ -63,19 +63,19 @@ int main(int argc, char *argv[])
     std::vector<std::vector<int>> PrimeSequences = Calculator.CalculatePrimeSequences(N);
     printVectorOfVectors(PrimeSequences);
 
-//    for (const auto sequence : PrimeSequences){
-//        for (const auto number : sequence){
-//            std::cout << number << " ";
-//        }
-//        std::cout << std::endl;
-//    }
-//
-//    // tests
-//    if (TestPrimeCalculator()){
-//        std::cout << "Tests reussis / Tests passed !" << std::endl;
-//    } else {
-//        std::cout << "Tests echoues / Failed tests :(" << std::endl;
-//    }
+    for (const auto sequence : PrimeSequences){
+        for (const auto number : sequence){
+            std::cout << number << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // tests
+    if (TestPrimeCalculator()){
+        std::cout << "Tests reussis / Tests passed !" << std::endl;
+    } else {
+        std::cout << "Tests echoues / Failed tests :(" << std::endl;
+    }
 
 }
 
