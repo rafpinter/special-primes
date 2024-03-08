@@ -107,5 +107,5 @@ bool TestPrimeCalculator(){
 }
 
 /*
-Note : prends 10 secondes pour trouver les sequences inferieures a N = 100000, et l'algo n'est pas le plus optimal
+Note : prends 10 secondes pour trouver les sequences inferieures a N = 100.000, et l'algo n'est pas le plus optimal
 */
